@@ -61,3 +61,17 @@ spec:
     app: nginx
 EOF
 ```
+```
+kubectl apply -n prod-nginx -f - <<EOF
+apiVersion: networking.k8s.io/v1
+kind: NetworkPolicy
+metadata:
+  name: default-deny
+spec:
+  podSelector:
+    matchLabels: {}
+  policyTypes:
+   - Ingress
+   - Egress
+EOF
+```
