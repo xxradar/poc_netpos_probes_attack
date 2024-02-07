@@ -1,3 +1,7 @@
+```
+kubectl create ns prod-nginx
+```
+```
 apiVersion: apps/v1
 kind: Deployment
 metadata:
@@ -39,3 +43,5 @@ spec:
           timeoutSeconds: 5        # When the probe times out
           successThreshold: 1      # Minimum consecutive successes for the probe to be considered successful
           failureThreshold: 3      # How many times to retry upon failure before giving up
+```
+
