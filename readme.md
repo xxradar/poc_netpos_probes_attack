@@ -121,3 +121,13 @@ spec:
           failureThreshold: 3      # How many times to retry upon failure before giving up
 EOF
 ```
+```
+$ sudo lsof -i -n -r 1 | grep "http "
+kubelet      887            root   25u  IPv4 106685092      0t0  TCP 10.1.2.223:35994->216.58.214.68:http (ESTABLISHED)
+kubelet      887            root   26u  IPv4 106684186      0t0  TCP 10.1.2.223:35990->216.58.214.68:http (ESTABLISHED)
+kubelet      887            root   27u  IPv4 106686732      0t0  TCP 10.1.2.223:35978->216.58.214.68:http (ESTABLISHED)
+kubelet      887            root   28u  IPv4 106685858      0t0  TCP 10.1.2.223:36004->216.58.214.68:http (ESTABLISHED)
+kubelet      887            root   25u  IPv4 106743014      0t0  TCP 10.1.2.223:47020->216.58.214.164:http (ESTABLISHED)
+kubelet      887            root   27u  IPv4 106743928      0t0  TCP 10.1.2.223:47046->216.58.214.164:http (ESTABLISHED)
+kubelet      887            root   28u  IPv4 106742339      0t0  TCP 10.1.2.223:47060->216.58.214.164:http (ESTABLISHED)
+```
