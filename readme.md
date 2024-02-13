@@ -1,6 +1,8 @@
+## Create a namespace
 ```
 kubectl create ns prod-nginx
 ```
+## Deploy a nginx deployment with probes checking the pods
 ```
 kubectl apply -f - <<EOF
 apiVersion: apps/v1
@@ -46,7 +48,9 @@ spec:
           failureThreshold: 3      # How many times to retry upon failure before giving up
 EOF
 ```
+## Optional service
 ```
+
 kubectl apply -f - <<EOF
 apiVersion: v1
 kind: Service
@@ -61,6 +65,7 @@ spec:
     app: nginx
 EOF
 ```
+## Deploy a Deny All network policy
 ```
 kubectl apply -n prod-nginx -f - <<EOF
 apiVersion: networking.k8s.io/v1
@@ -75,6 +80,7 @@ spec:
    - Egress
 EOF
 ```
+## Deploy a nginx deployment with probes checking google.com
 ```
 kubectl apply -f - <<EOF
 apiVersion: apps/v1
@@ -121,6 +127,7 @@ spec:
           failureThreshold: 3      # How many times to retry upon failure before giving up
 EOF
 ```
+## Identify the process accessing google.com
 ```
 $ sudo lsof -i -n -r 1 | grep "http "
 kubelet      887            root   25u  IPv4 106685092      0t0  TCP 10.1.2.223:35994->216.58.214.68:http (ESTABLISHED)
