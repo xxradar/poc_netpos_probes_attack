@@ -8,6 +8,6 @@
   desc: Alert on outbound connections
   condition: is_outbound and evt.type = connect and proc.name = kubelet and (fd.ip != "0.0.0.0" and fd.net != "127.0.0.0/8" and not fd.snet in (rfc_1918_addresses))
   output: "Kubelet Outbound connection detected (fd=%fd.name) via %proc.name"
-  priority: HIGH
+  priority: ALERT
   tags: [network]
 
